@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-blue: var(--neon-blue);
+  --color-neon-purple: var(--neon-purple);
+  
+  --color-bg-primary: var(--bg-primary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --color-nav-bg: var(--nav-bg);
+
+  --animate-gradient-x: gradient-x 3s linear infinite;
+
+  @keyframes gradient-x {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
+
+@layer base {
+  :root {
+    --bg-primary: #f8fafc; /* slate-50 */
+    --text-primary: #0f172a; /* slate-900 */
+    --text-secondary: #475569; /* slate-600 */
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --nav-bg: rgba(248, 250, 252, 0.7);
+    --neon-blue: #2563eb; /* blue-600 (açık modda daha koyu, okunaklı mavi) */
+    --neon-purple: #9333ea; /* purple-600 (açık modda daha koyu, okunaklı mor) */
+  }
+
+  .dark {
+    --bg-primary: #030712; /* gray-950 */
+    --text-primary: #f3f4f6; /* gray-100 */
+    --text-secondary: #9ca3af; /* gray-400 */
+    --glass-bg: rgba(20, 20, 30, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --nav-bg: rgba(3, 7, 18, 0.7);
+    --neon-blue: #00f3ff; /* orijinal neon mavi */
+    --neon-purple: #bc13fe; /* orijinal neon mor */
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary overflow-x-hidden leading-relaxed font-sans transition-colors duration-500;
+  }
+}
+
+@layer utilities {
+  .neon-text-gradient {
+    @apply bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent;
+  }
+  
+  .glass-card {
+    @apply bg-glass-bg backdrop-blur-md border border-glass-border rounded-2xl p-8 transition-all duration-300;
+  }
+  
+  .glass-card:hover {
+    @apply -translate-y-1 shadow-[0_10px_30px_rgba(0,243,255,0.1),0_0_20px_rgba(188,19,254,0.1)];
+  }
+
+  .neon-btn {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-semibold text-text-primary bg-transparent border border-neon-blue rounded-lg cursor-pointer transition-all duration-300 z-10 overflow-hidden;
+  }
+
+  .neon-btn::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-neon-blue to-neon-purple opacity-0 transition-opacity duration-300 -z-10;
+  }
+
+  .neon-btn:hover::before {
+    @apply opacity-100;
+  }
+
+  .neon-btn:hover {
+    @apply border-transparent shadow-[0_0_15px_#00f3ff] text-white;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-bg-primary;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-neon-blue to-neon-purple rounded-md;
+}
