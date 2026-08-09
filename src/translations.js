@@ -52,6 +52,14 @@ export const translations = {
       title: "Deneyimlerim",
       items: [
         {
+          id: 5,
+          year: "Ağustos 2026 - Devam ediyor",
+          role: "Financial Controlling Proje Öğrencisi",
+          type: "Yarı Zamanlı",
+          company: "BSH Ev Aletleri",
+          description: "Üretim fabrikalarının yatırım süreçlerinde finansal planlama ve raporlama konularına destek olmak."
+        },
+        {
           id: 4,
           year: "Ağustos 2025 - Şubat 2026",
           role: "Veritabanı Editörü",
@@ -239,6 +247,14 @@ export const translations = {
     experience: {
       title: "My Experience",
       items: [
+        {
+          id: 5,
+          year: "August 2026 - Present",
+          role: "Financial Controlling Project Student",
+          type: "Part Time",
+          company: "BSH Home Appliances",
+          description: "Supported financial planning and reporting processes in the investment operations of production factories."
+        },
         {
           id: 4,
           year: "August 2025 - February 2026",
